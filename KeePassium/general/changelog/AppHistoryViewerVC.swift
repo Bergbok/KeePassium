@@ -168,32 +168,9 @@ extension AppHistoryViewerVC {
         cell.isAccessibilityElement = true
         cell.accessibilityLabel = [item.change.description, ": ", item.title].joined()
 
-        let itemType = LicenseManager.shared.hasActiveBusinessLicense() ? .none : item.type
-        switch itemType {
-        case .none:
-            cell.accessoryView = nil
-            cell.accessoryType = .none
-            cell.tintColor = .auxiliaryText
-        case .free:
-            cell.accessoryView = nil
-            cell.tintColor = .auxiliaryText
-            if isOwned {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-                cell.accessoryView = FreeBadgeAccessory()
-                cell.accessoryView?.sizeToFit()
-            }
-        case .premium:
-            if isOwned {
-                cell.accessoryView = nil
-                cell.accessoryType = .checkmark
-                cell.tintColor = .systemYellow
-            } else {
-                cell.accessoryType = .none
-                cell.accessoryView = PremiumBadgeAccessory()
-            }
-        }
+        cell.accessoryView = nil
+        cell.accessoryType = .checkmark
+        cell.tintColor = .systemYellow
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

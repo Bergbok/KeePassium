@@ -161,14 +161,6 @@ final class MainCoordinator: Coordinator {
     }
 
     private func runAfterStartTasks() {
-        #if INTUNE
-        applyIntuneAppConfig()
-
-        guard LicenseManager.shared.hasActiveBusinessLicense() else {
-            showOrgLicensePaywall()
-            return
-        }
-        #endif
         DispatchQueue.main.async { [weak self] in
             self?.maybeShowOnboarding()
         }

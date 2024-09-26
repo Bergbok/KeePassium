@@ -81,7 +81,7 @@ class SupportEmailComposer: NSObject {
         if let managedEmailOverride = ManagedAppConfig.shared.supportEmail {
             return managedEmailOverride
         }
-        if BusinessModel.isIntuneEdition || LicenseManager.shared.hasActiveBusinessLicense() {
+        if BusinessModel.isIntuneEdition {
             return orgSupportEmail
         }
 

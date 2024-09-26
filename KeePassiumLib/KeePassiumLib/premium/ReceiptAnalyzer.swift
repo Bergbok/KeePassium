@@ -191,10 +191,6 @@ class ReceiptAnalyzer {
         if BusinessModel.type == .prepaid {
             return PurchaseHistory.prepaidProVersion
         }
-        if LicenseManager.shared.hasActiveBusinessLicense() {
-            Diag.info("Using business license")
-            return PurchaseHistory.businessLicense
-        }
         if Settings.current.isTestEnvironment {
             Diag.info("Enabling premium for test environment")
             return PurchaseHistory.betaTesting

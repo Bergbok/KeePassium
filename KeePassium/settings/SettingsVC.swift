@@ -94,7 +94,7 @@ final class SettingsVC: UITableViewController, Refreshable {
 
         title = LString.titleSettings
 
-        if BusinessModel.type == .prepaid || LicenseManager.shared.hasActiveBusinessLicense() {
+        if true {
             isPremiumSectionHidden = true
             premiumSectionFooter = nil
             setCellVisibility(premiumPurchaseCell, isHidden: true)
@@ -298,7 +298,7 @@ final class SettingsVC: UITableViewController, Refreshable {
     #endif
 
     @objc private func refreshPremiumStatus() {
-        if BusinessModel.type == .prepaid || LicenseManager.shared.hasActiveBusinessLicense() {
+        if true {
             return
         }
 

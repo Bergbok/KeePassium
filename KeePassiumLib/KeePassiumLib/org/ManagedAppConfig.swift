@@ -76,7 +76,6 @@ public final class ManagedAppConfig: NSObject {
             Diag.debug("License key changed, reloading")
             previousLicenseValue = newLicense
             hasWarnedAboutMissingLicense = false
-            LicenseManager.shared.checkBusinessLicense()
         }
         guard isManaged() else { return }
         allowedFileProviders = nil
@@ -207,10 +206,6 @@ extension ManagedAppConfig {
             return nil
         }
 
-        guard LicenseManager.shared.hasActiveBusinessLicense() else {
-            warnAboutMissingLicenseOnce()
-            return nil
-        }
         return result
     }
 
@@ -235,10 +230,6 @@ extension ManagedAppConfig {
             return nil
         }
 
-        guard LicenseManager.shared.hasActiveBusinessLicense() else {
-            warnAboutMissingLicenseOnce()
-            return nil
-        }
         return result
     }
 
@@ -257,10 +248,6 @@ extension ManagedAppConfig {
             return nil
         }
 
-        guard LicenseManager.shared.hasActiveBusinessLicense() else {
-            warnAboutMissingLicenseOnce()
-            return nil
-        }
         return result
     }
 }
